@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "app/package.json", "use": "@now/next@canary" },
+    { "src": "api/*.js", "use": "@now/node@canary" }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/app/static/favicon.ico"
+    },
+    {
+      "src": "/hello",
+      "dest": "/app/static/hello.txt"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/app/$1"
+    }
+  ]
+}
